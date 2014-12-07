@@ -135,7 +135,6 @@ alias rkhunter='rkhunter -c --sk --rwo'
 alias lsdir="for dir in *;do;if [ -d \$dir ];then;du -hsL \$dir;fi;done"
 alias thr='ps -AlFH'
 
-njah=njah.eva.hk
 . /etc/environment
 
 
