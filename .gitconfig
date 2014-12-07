@@ -1,0 +1,19 @@
+[user]
+        name = noname
+        email = noname@njah.eva.hk
+
+[alias]
+co = checkout
+st = status
+hist = log --oneline --pretty=format:\"%C(auto)%G? %h %ad | %s%d [%an] %N\" --graph --all -n 10
+br = branch
+type = cat-file -t
+dump = cat-file -p
+[core]
+pager = cat
+[http]
+sslCAInfo=/etc/ssl/certs/ca-certificates.crt
+[push]
+	default = simple
+[merge]
+	tool = vimdiff

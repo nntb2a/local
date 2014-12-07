@@ -1,0 +1,40 @@
+#backtick 1 15 15 $HOME/cpuusage
+# now add '%1`%% CPU' to your hardstatus string. Result is like 38.4% CPU.
+
+hardstatus alwayslastline
+backtick 1 0 0 /usr/local/bin/screen-mem-usage
+backtick 2 0 0 /usr/local/bin/screen-cpu-usage
+
+#hardstatus string '%=%{kb}Mem:%{kB}%1`  %{ky}Cpu:%{kY}%2`%%  %{kR}Load:%{kr}%l%=%{kc} %D %m/%d %{kC}%C%a%{w}'
+hardstatus string '%{= kG} %{G}%H %{g}%= %{= kK}%?%-Lw%?%{W}%n@%t%?(%u)%?%{kK}%` %=%{kb}%{kB}%1`  %{ky}%{kY}%2`%%  %{G}%D %M %d.%m%{Y}%c:%s'
+bufferfile /tmp/screen-exchange
+bindkey -m > eval "stuff ' '" writebuf "exec sh -c 'xsel -n < /tmp/screen-exchange'"
+
+
+shelltitle ""
+bindkey "^T" screen
+bindkey "^[1" select 1
+bindkey "^[2" select 2
+bindkey "^[3" select 3
+bindkey "^[4" select 4
+bindkey "^[5" select 5
+bindkey "^[6" select 6
+bindkey "^[7" select 7
+bindkey "^[8" select 8
+bindkey "^[9" select 9
+bindkey "^[0" select 0
+bindkey ^[[1;5A focus prev
+bindkey ^[[1;5B focus next
+screen -t sudo 0 sudo -i
+screen 1 
+screen 2 
+screen -t sudo 3 sudo -i
+screen 4
+screen 5
+screen 6
+screen 7 sudo -i -u vk finch
+screen 8
+screen -t messages 9 sudo /usr/local/bin/messageslogs
+password "DO9TUQnOfV5tU"
+select 5
+maptimeout 0
